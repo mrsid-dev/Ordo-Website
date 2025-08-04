@@ -4,42 +4,168 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="bothead.png">
-  <title>Ordo Bot - Coming Soon</title>
+  <title>Ordo Bot</title>
   <style>
     body {
       background: #36393f; /* Discord dark theme background */
       color: #f5f5f5;
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 10%;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
     }
-    h1 {
-      font-size: 3em;
-      margin-bottom: 0.5em;
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #2f3136;
+      padding: 0.8em 2em;
+      border-bottom: 2px solid #202225;
+      position: sticky;
+      top: 0;
     }
-    p {
-      font-size: 1.2em;
-      margin-bottom: 2em;
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
     }
-    a {
-      background: #e83c70;
-      color: white;
-      padding: 0.8em 1.5em;
+
+    .navbar-left img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .navbar-left h2 {
+      margin: 0;
+      font-size: 1.4em;
+    }
+
+    .navbar-right a {
+      margin-left: 15px;
       text-decoration: none;
-      border-radius: 8px;
+      color: #f5f5f5;
       font-weight: bold;
     }
-    a:hover {
-      background: #ff4d88;
+
+    .navbar-right a:hover {
+      color: #8BD9FE; /* cyan accent */
+    }
+
+    /* Main content */
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1.5em;
+    }
+
+    h1, h2 {
+      color: #8BD9FE; /* accent color for headings */
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li::before {
+      content: "• ";
+      color: #A30F2D; /* Ordo Red bullet */
+    }
+
+    .divider {
+      height: 2px;
+      background: #202225;
+      margin: 1.5em 0;
+    }
+
+    /* Collapsible */
+    details {
+      background: #2f3136;
+      border: 1px solid #202225;
+      border-radius: 6px;
+      margin: 1em 0;
+      padding: 1em;
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1em;
+      outline: none;
+    }
+
+    details[open] summary {
+      color: #8BD9FE;
     }
   </style>
 </head>
 <body>
-  <img src="bothead.png" alt="Ordo Bot" style="width:120px; height:auto; margin-bottom: 20px;">
-  <h1>Ordo is Coming Soon</h1>
-  <p>The next generation of Discord bot tools is on the way.</p>
-  <!--
-  <a href="https://discord.gg/YOURINVITELINK" target="_blank">Join the Support Server</a>
-  -->
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <img src="bothead.png" alt="Ordo Bot">
+      <h2>Ordo Bot</h2>
+    </div>
+    <div class="navbar-right">
+      <a href="#">Home</a>
+      <a href="#">Docs</a>
+      <a href="#">Invite</a>
+      <a href="#">Support</a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Ordo – Your Administrative and AI Assistant for Discord</h1>
+    <p>
+      Ordo is designed to be more than “just another bot.” It combines powerful administrative tools,
+      community engagement features, and AI-driven utilities into one reliable assistant. From server security
+      to project organization, Ordo adapts to servers of any size or purpose.
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- Collapsible Sections -->
+    <details>
+      <summary>Core Features</summary>
+      <ul>
+        <li>Docs System – Save and recall info in plain text or embeds.</li>
+        <li>Embed Builder – Craft and log custom embeds with precision.</li>
+        <li>Giveaways – Run fair giveaways with role-based perks.</li>
+        <li>Games & Fun – Connect 4, Dice, Coin Flip, Achievement command.</li>
+        <li>Listeners & Logs – Moderation, joins/leaves, edits, deletions, and voice transcriptions.</li>
+        <li>Profiles – User profiles with timezone, badges, languages, banners, and default colors.</li>
+        <li>Utilities – Reminders, timestamps, say command.</li>
+        <li>Voice – Join/leave VC, text-to-speech.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Future Roadmap</summary>
+      <ul>
+        <li>AI Meeting Summaries & Voice Tickets</li>
+        <li>Ticket System with web transcripts</li>
+        <li>Invite Tracking & Channel Lockdowns</li>
+        <li>Staff Reviews & Server Reviews</li>
+        <li>Custom Role Hubs (buttons & menus)</li>
+        <li>Global leveling, auto-post, and media notifications</li>
+        <li>AI Chat Characters (mentionable personalities)</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Why Ordo?</summary>
+      <p>
+        Ordo is professional, approachable, and organized — built to keep communities structured and efficient.
+        Whether you’re running a large Discord server or managing a small project group, Ordo adapts to your needs
+        while continuing to grow with new AI-driven features.
+      </p>
+      <p><em>“Ordo: The assistant that grows with your community.”</em></p>
+    </details>
+  </div>
 </body>
 </html>
+

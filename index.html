@@ -6,8 +6,12 @@
   <link rel="icon" type="image/png" href="bothead.png">
   <title>Ordo - Coming Soon</title>
   <style>
-    body {
-      background: #17191B;
+      html { min-height: 100%; }
+
+      body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      background: linear-gradient(#0b1215, #A30F2D);
       color: #AEB5BB;
       font-family: Arial, sans-serif;
       margin: 0;
@@ -19,9 +23,10 @@
     .navbar {
       display: flex;
       align-items: center;
-      background: #0F1113;
+      background: transparent;
+      backdrop-filter: blur(8px);
       padding: 0.8em 2em;
-      border-bottom: 2px solid #353A3F;
+      border-bottom: 1px solid #FFF0F92E;
       position: sticky;
       top: 0;
     }
@@ -73,20 +78,20 @@
 
     ul li::before {
       content: "• ";
-      color: #A30F2D;
+      color: #EDEEEF;
     }
 
     .divider {
       height: 2px;
-      background: #353A3F;
+      background: #FFF0F92E;
       margin: 1.5em 0;
     }
 
     /* Collapsible */
     details {
-      background: #212324;
-      border: 1px solid #373A3E;
-      border-radius: 6px;
+      background: #FFCFBC17;
+      border: 2px solid #FFF0F92E;
+      border-radius: 25px;
       margin: 1em 0;
       padding: 1em;
       text-align: left;
@@ -94,14 +99,9 @@
 
     details summary {
       cursor: pointer;
-      font-weight: bold;
       font-size: 1.1em;
       outline: none;
-      color: ##B0B5B9;
-    }
-
-    details[open] summary {
-      color: #A30F2D;
+      color: #B0B5B9;
     }
   </style>
 </head>
@@ -132,14 +132,14 @@
     <details>
       <summary>Current Features</summary>
       <ul>
-        <li><strong>Docs System</strong> – Save and recall info in plain text or embeds.</li>
-        <li><strong>Embed Builder</strong> – Craft and log custom embeds with precision.</li>
-        <li><strong>Giveaways</strong> – Run fair giveaways with role-based perks.</li>
-        <li><strong>Games & Fun</strong> – Connect 4, Dice, Coin Flip, Achievement command.</li>
-        <li><strong>Listeners & Logs</strong> – Moderation, joins/leaves, edits, deletions, and voice transcriptions.</li>
-        <li><strong>Profiles</strong> – User profiles with timezone, badges, languages, banners, and default colors.</li>
-        <li><strong>Utilities</strong> – Reminders, timestamps, say command.</li>
-        <li><strong>Voice</strong> – Join/leave VC, text-to-speech.</li>
+          <li><span style="color:#EDEEEF;"><strong>Docs System</strong></span> – Save and recall info in plain text or embeds.</li>
+        <li><span style="color:#EDEEEF;"><strong>Embed Builder</strong></span> – Craft and log custom embeds with precision.</li>
+        <li><span style="color:#EDEEEF;"><strong>Giveaways</strong></span> – Run fair giveaways with role-based perks.</li>
+        <li><span style="color:#EDEEEF;"><strong>Games & Fun</strong></span> – Connect 4, Dice, Coin Flip, Achievement command.</li>
+        <li><span style="color:#EDEEEF;"><strong>Listeners & Logs</strong></span> – Moderation, joins/leaves, edits, deletions, and voice transcriptions.</li>
+        <li><span style="color:#EDEEEF;"><strong>Profiles</strong></span> – User profiles with timezone, badges, languages, banners, and default colors.</li>
+        <li><span style="color:#EDEEEF;"><strong>Utilities</strong></span> – Reminders, timestamps, say command.</li>
+        <li><span style="color:#EDEEEF;"><strong>Voice</strong></span> – Join/leave VC, text-to-speech.</li>
       </ul>
     </details>
 

@@ -1,176 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="bothead.png">
-  <title>Ordo - Coming Soon</title>
-  <style>
-      html { min-height: 100%; }
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/png" href="bothead.png">
+	<title>Ordo - Coming Soon</title>
+	<style>
+		body {
+			min-height: 100vh;
+			min-height: 100dvh;
+			background: #0b1215;
+			color: #EDEEEF;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			line-height: 1.6;
+		}
 
-      body {
-      min-height: 100vh;
-      min-height: 100dvh;
-      background: #0b1215;
-      color: #EDEEEF;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
+		.hero {
+			height: 480px;
+			background: linear-gradient(to bottom, rgba(163, 15, 45, 0.6),rgba(163, 15, 45, 0));
+		}
 
-    .hero {
-    height: 480px;
-    background: linear-gradient(to bottom, rgba(163, 15, 45, 0.6),rgba(163, 15, 45, 0));
-    }
+		/* Navbar */
+		.navbar {
+			background: rgba(11, 18, 21, 0.55);
+			backdrop-filter: blur(8px);
+			color: #EDEEEF;
+			transition: background-color .25s ease;
+			display: flex;
+			align-items: center;
+			padding: 0.8em 2em;
+			border-bottom: 1px solid #FFF0F92E;
+			position: sticky;
+			top: 0;
+			z-index: 1000;
+		}
 
-    /* Navbar */
-    .navbar {
-      display: flex;
-      align-items: center;
-      background: transparent;
-      padding: 0.8em 2em;
-      border-bottom: 1px solid #FFF0F92E;
-      position: sticky;
-      top: 0;
-    }
+		.navbar-left {
+			display: flex;
+			align-items: center;
+		}
 
-    .navbar-left {
-      display: flex;
-      align-items: center;
-    }
+		.navbar-left img {
+			width: 40px;
+			height: 40px;
+			margin-right: 10px;
+		}
 
-    .navbar-left img {
-      width: 40px;
-      height: 40px;
-      margin-right: 10px;
-    }
+		.navbar-left h2 {
+			margin: 0;
+			font-size: 1.4em;
+			color: #EDEEEF;
+		}
 
-    .navbar-left h2 {
-      margin: 0;
-      font-size: 1.4em;
-      color: #EDEEEF;
-    }
+		/* Main content */
+		.container {
+			max-width: 900px;
+			margin: 2em auto;
+			padding: 0 1.5em;
+			text-align: center;
+		}
 
-    /* Main content */
-    .container {
-      max-width: 900px;
-      margin: 2em auto;
-      padding: 0 1.5em;
-      text-align: center;
-    }
+		h1 {
+			font-size: 2.2em;
+			margin-bottom: 0.5em;
+			color: #EDEEEF;
+		}
 
-    h1 {
-      font-size: 2.2em;
-      margin-bottom: 0.5em;
-      color: #EDEEEF;
-    }
+		h2 {
+			font-size: 1.5em;
+			margin-top: 1em;
+			margin-bottom: 0.5em;
+			color: #EDEEEF;
+		}
 
-    h2 {
-      font-size: 1.5em;
-      margin-top: 1em;
-      margin-bottom: 0.5em;
-      color: #EDEEEF;
-    }
+		ul {
+			list-style: none;
+			padding: 0;
+			text-align: left;
+			display: inline-block;
+		}
 
-    ul {
-      list-style: none;
-      padding: 0;
-      text-align: left;
-      display: inline-block;
-    }
+		ul li::before {
+			content: "• ";
+			color: #EDEEEF;
+		}
 
-    ul li::before {
-      content: "• ";
-      color: #EDEEEF;
-    }
+		.divider {
+			height: 2px;
+			background: #FFF0F92E;
+			margin: 1.5em 0;
+		}
 
-    .divider {
-      height: 2px;
-      background: #FFF0F92E;
-      margin: 1.5em 0;
-    }
+		/* Collapsible */
+		details {
+			background: #FFCFBC17;
+			border: 2px solid #FFF0F92E;
+			border-radius: 25px;
+			margin: 1em 0;
+			padding: 1em;
+			text-align: left;
+		}
 
-    /* Collapsible */
-    details {
-      background: #FFCFBC17;
-      border: 2px solid #FFF0F92E;
-      border-radius: 25px;
-      margin: 1em 0;
-      padding: 1em;
-      text-align: left;
-    }
-
-    details summary {
-      cursor: pointer;
-      font-size: 1.1em;
-      outline: none;
-      color: #EDEEEF;
-    }
-  </style>
+		details summary {
+			cursor: pointer;
+			font-size: 1.1em;
+			outline: none;
+			color: #EDEEEF;
+		}
+	</style>
 </head>
 <body>
-  <div class="hero">
-    <!-- Navbar -->
-    <div class="navbar">
-      <div class="navbar-left">
-        <img src="bothead.png" alt="Ordo">
-        <h2>Ordo</h2>
-      </div>
-    </div>
+<div class="hero">
+	<!-- Navbar -->
+	<div class="navbar">
+		<div class="navbar-left">
+			<img src="bothead.png" alt="Ordo">
+			<h2>Ordo</h2>
+		</div>
+	</div>
 
-    <!-- Main Content -->
-    <div class="container">
-      <h1>🚧 Coming Soon 🚧</h1>
-        <p><span style="color:#B0B5B9;">The next generation of Discord bot tools is on the way.</span></p>
+	<!-- Main Content -->
+	<div class="container">
+		<h1>🚧 Coming Soon 🚧</h1>
+		<p><span style="color:#B0B5B9;">The next generation of Discord bot tools is on the way.</span></p>
 
-      <div class="divider"></div>
+		<div class="divider"></div>
 
-      <h2>About Ordo</h2>
-      <p>
-      <span style="color:#B0B5B9;">Ordo is designed to be more than “just another bot.” It combines powerful administrative tools,
-      community engagement features, and AI-driven utilities into one reliable assistant. From server security
-          to project organization, Ordo adapts to servers of any size or purpose.</span>
-      </p>
+		<h2>About Ordo</h2>
+		<p>
+        <span style="color:#B0B5B9;">Ordo is designed to be more than “just another bot.” It combines powerful administrative tools,
+        community engagement features, and AI-driven utilities into one reliable assistant. From server security
+		to project organization, Ordo adapts to servers of any size or purpose.</span>
+		</p>
 
-      <!-- Collapsible Sections -->
-      <details>
-        <summary>Current Features</summary>
-        <ul>
-            <li><strong>Docs System</strong> – <span style="color:#B0B5B9;">Save and recall info in plain text or embeds.</span></li>
-            <li><strong>Embed Builder</strong> – <span style="color:#B0B5B9;">Craft and log custom embeds with precision.</span></li>
-            <li><strong>Giveaways</strong> – <span style="color:#B0B5B9;">Run fair giveaways with role-based perks.</span></li>
-            <li><strong>Games & Fun</strong> – <span style="color:#B0B5B9;">Connect 4, Dice, Coin Flip, Achievement command.</span></li>
-            <li><strong>Listeners & Logs</strong> – <span style="color:#B0B5B9;">Moderation, joins/leaves, edits, deletions, and voice transcriptions.</span></li>
-            <li><strong>Profiles</strong> – <span style="color:#B0B5B9;">User profiles with timezone, badges, languages, banners, and default colors.</span></li>
-            <li><strong>Utilities</strong> – <span style="color:#B0B5B9;">Reminders, timestamps, say command.</span></li>
-            <li><strong>Voice</strong> – <span style="color:#B0B5B9;">Join/leave VC, text-to-speech.</span></li>
-        </ul>
-      </details>
+		<!-- Collapsible Sections -->
+		<details>
+			<summary>Current Features</summary>
+			<ul>
+				<li><strong>Docs System</strong> – <span style="color:#B0B5B9;">Save and recall info in plain text or embeds.</span>
+				</li>
+				<li><strong>Embed Builder</strong> – <span style="color:#B0B5B9;">Craft and log custom embeds with precision.</span>
+				</li>
+				<li><strong>Giveaways</strong> – <span
+						style="color:#B0B5B9;">Run fair giveaways with role-based perks.</span></li>
+				<li><strong>Games & Fun</strong> – <span style="color:#B0B5B9;">Connect 4, Dice, Coin Flip, Achievement command.</span>
+				</li>
+				<li><strong>Listeners & Logs</strong> – <span style="color:#B0B5B9;">Moderation, joins/leaves, edits, deletions, and voice transcriptions.</span>
+				</li>
+				<li><strong>Profiles</strong> – <span style="color:#B0B5B9;">User profiles with timezone, badges, languages, banners, and default colors.</span>
+				</li>
+				<li><strong>Utilities</strong> – <span style="color:#B0B5B9;">Reminders, timestamps, say command.</span>
+				</li>
+				<li><strong>Voice</strong> – <span style="color:#B0B5B9;">Join/leave VC, text-to-speech.</span></li>
+			</ul>
+		</details>
 
-      <details>
-        <summary>Future Roadmap</summary>
-        <ul>
-          <li>AI Meeting Summaries & Voice Tickets</li>
-          <li>Ticket System with web transcripts</li>
-          <li>Invite Tracking & Channel Lockdowns</li>
-          <li>Staff Reviews & Server Reviews</li>
-          <li>Custom Role Hubs (buttons & menus)</li>
-          <li>Global leveling, auto-post, and media notifications</li>
-          <li>AI Chat Characters (mentionable personalities)</li>
-        </ul>
-      </details>
+		<details>
+			<summary>Future Roadmap</summary>
+			<ul>
+				<li>AI Meeting Summaries & Voice Tickets</li>
+				<li>Ticket System with web transcripts</li>
+				<li>Invite Tracking & Channel Lockdowns</li>
+				<li>Staff Reviews & Server Reviews</li>
+				<li>Custom Role Hubs (buttons & menus)</li>
+				<li>Global leveling, auto-post, and media notifications</li>
+				<li>AI Chat Characters (mentionable personalities)</li>
+			</ul>
+		</details>
 
-      <details>
-        <summary>Why Ordo?</summary>
-        <p>
-            Ordo is professional, approachable, and organized — built to keep communities structured and efficient.
-            Whether you’re running a large Discord server or managing a small project group, Ordo adapts to your needs
-            while continuing to grow with new AI-driven features.
-        </p>
-        <p><em>“Ordo: The assistant that grows with your community.”</em></p>
-      </details>
-    </div>
-  </div>
+		<details>
+			<summary>Why Ordo?</summary>
+			<p>
+				Ordo is professional, approachable, and organized — built to keep communities structured and efficient.
+				Whether you’re running a large Discord server or managing a small project group, Ordo adapts to your
+				needs
+				while continuing to grow with new AI-driven features.
+			</p>
+			<p><em>“Ordo: The assistant that grows with your community.”</em></p>
+		</details>
+	</div>
+</div>
 </body>
 </html>

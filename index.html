@@ -1,187 +1,414 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark-theme">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png" href="bothead.png">
-	<title>Ordo - Coming Soon</title>
-	<style>
-		body {
-			min-height: 100vh;
-			min-height: 100dvh;
-			background: #0b1215;
-			color: #EDEEEF;
-			font-family: Arial, sans-serif;
-			margin: 0;
-			padding: 0;
-			line-height: 1.6;
-		}
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" type="image/png" href="bothead.png"/>
+    <title>Ordo — Home</title>
+    <style>
+        /* =========================
+           RADIX-LIKE TOKEN SCALES
+           (your red/gray sets)
+           ========================= */
+        .dark-theme {
+            --red-1: #190d0d;
+            --red-2: #231111;
+            --red-3: #44040e;
+            --red-4: #5c000c;
+            --red-5: #700012;
+            --red-6: #84001d;
+            --red-7: #a0092b;
+            --red-8: #cf0c39;
+            --red-9: #a30f2d;
+            --red-10: #8c0022;
+            --red-11: #ff8e92;
+            --red-12: #ffcccb;
 
-		.hero {
-			height: 480px;
-			background: linear-gradient(to bottom, rgba(163, 15, 45, 0.6),rgba(163, 15, 45, 0));
-		}
+            --gray-1: #101112;
+            --gray-2: #18191a;
+            --gray-3: #212324;
+            --gray-4: #272a2c;
+            --gray-5: #2e3134;
+            --gray-6: #373a3e;
+            --gray-7: #44484c;
+            --gray-8: #5a6166;
+            --gray-9: #686f74;
+            --gray-10: #767c82;
+            --gray-11: #b0b5b9;
+            --gray-12: #edeeef;
 
-		/* Navbar */
-		.navbar {
-			background: rgba(11, 18, 21, 0.55);
-			backdrop-filter: blur(10px);
-			color: #EDEEEF;
-			transition: background-color .25s ease;
-			display: flex;
-			align-items: center;
-			padding: 0.8em 2em;
-			border-bottom: 1px solid rgba(90, 97, 102, 0.30);
-			position: sticky;
-			top: 0;
-			z-index: 1000;
-		}
+            /* semantic tokens used by the UI */
+            --color-bg: #0b1215;
+            --color-text: var(--gray-12);
+            --color-muted: var(--gray-11);
+            --color-border: rgba(90, 97, 102, 0.30);
+            --color-border-strong: rgba(90, 97, 102, 0.35);
+            --color-brand: var(--red-9);
+            --color-card: color-mix(in srgb, var(--red-8) 20%, transparent);
+            --color-link: #8BD9FE;
+            --color-nav: rgba(11, 18, 21, 0.55);
+            --glass-blur: 50px;
+        }
 
-		.navbar-left {
-			display: flex;
-			align-items: center;
-		}
+        .light-theme {
+            --red-1: #bdbbbb;
+            --red-2: #b8b2b2;
+            --red-3: #b2a1a0;
+            --red-4: #af9090;
+            --red-5: #a7807f;
+            --red-6: #9b6e6e;
+            --red-7: #8e595a;
+            --red-8: #803f41;
+            --red-9: #a30f2d;
+            --red-10:#90001e;
+            --red-11:#500009;
+            --red-12:#611e23;
 
-		.navbar-left img {
-			width: 40px;
-			height: 40px;
-			margin-right: 10px;
-		}
+            --gray-1: #bbbcbc;
+            --gray-2: #b2b3b4;
+            --gray-3: #a5a6a8;
+            --gray-4: #989b9c;
+            --gray-5: #8d8f92;
+            --gray-6: #818487;
+            --gray-7: #73777a;
+            --gray-8: #5d6267;
+            --gray-9: #32383d;
+            --gray-10:#292f33;
+            --gray-11:#15191c;
+            --gray-12:#1c2124;
 
-		.navbar-left h2 {
-			margin: 0;
-			font-size: 1.4em;
-			color: #EDEEEF;
-		}
+            /* semantic tokens used by the UI */
+            --color-bg: #bfc3c7;
+            --color-text: var(--gray-12);
+            --color-muted: var(--gray-9);
+            --color-border: rgba(0,0,0,0.20);
+            --color-border-strong: rgba(0,0,0,0.30);
+            --color-brand: var(--red-9);
+            --color-card: color-mix(in srgb, var(--red-4) 12%, white 0%);
+            --color-link: #1f6f99;
+            --color-nav: rgba(255, 255, 255, 0.15);
+            --glass-blur: 10px;
+        }
 
-		/* Main content */
-		.container {
-			max-width: 900px;
-			margin: 2em auto;
-			padding: 0 1.5em;
-			text-align: center;
-		}
+        * { box-sizing: border-box; }
 
-		h1 {
-			font-size: 2.2em;
-			margin-bottom: 0.5em;
-			color: #EDEEEF;
-		}
+        body {
+            min-height: 100vh;
+            min-height: 100dvh;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: var(--color-bg);
+            color: var(--color-text);
+            font-family: Arial, sans-serif;
+        }
 
-		h2 {
-			font-size: 1.5em;
-			margin-top: 1em;
-			margin-bottom: 0.5em;
-			color: #EDEEEF;
-		}
+        :root { --nav-h: 72px; }
 
-		ul {
-			list-style: none;
-			padding: 0;
-			text-align: left;
-			display: inline-block;
-		}
+        .navbar {
+            position: sticky;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            width: 100%;
+            height: var(--nav-h);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8em 2em;
+            background: transparent;
+            backdrop-filter: none;
+            border-bottom: 1px solid transparent;
+        }
 
-		ul li::before {
-			content: "• ";
-			color: #EDEEEF;
-		}
+        /* transparent at very top */
+        [data-scroll-state="at-top"] .navbar {
+          background: transparent;
+          border-bottom-color: transparent;
+          backdrop-filter: none;
+          box-shadow: none;
+        }
 
-		.divider {
-			height: 2px;
-			background: rgba(90, 97, 102, 0.35);
-			margin: 1.5em 0;
-		}
+        /* frosted when scrolling */
+        [data-scroll-state="scrolling-down"] .navbar,
+        [data-scroll-state="scrolling-up"] .navbar {
+          background: var(--color-nav);
+          backdrop-filter: blur(var(--glass-blur));
+          border-bottom-color: var(--color-border);
+        }
+        [data-scroll-state="scrolling-up"] .navbar {
+          box-shadow: 0 8px 24px rgba(0,0,0,.08);
+        }
 
-		/* Collapsible */
-		details {
-			background: rgba(163, 15, 45, 0.20);
-			backdrop-filter: blur(8px);
-			border: 2px solid rgba(90, 97, 102, 0.30);
-			border-radius: 25px;
-			margin: 1em 0;
-			padding: 1em;
-			text-align: left;
-		}
+        /* keep hero at the very top under the fixed nav, but don't let text hide under it */
+        .hero .container { padding-top: calc(var(--nav-h) + 32px); } /* small breathing room */
 
-		details summary {
-			cursor: pointer;
-			font-size: 1.1em;
-			outline: none;
-			color: #EDEEEF;
-		}
-	</style>
+
+        /* Exact hero gradient (theme-proof) */
+        .hero {
+          position: relative;
+          height: 480px;
+          margin-top: 0;
+          background: linear-gradient(to bottom, var(--red-4), transparent);
+          opacity: 0.6;
+        }
+
+        .navbar-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar-left img { width: 40px; height: 40px; }
+
+        .brand-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--color-text);
+        }
+
+        .navbar-left h2 {
+            margin: 0;
+            font-size: 1.4em;
+            color: var(--color-text);
+        }
+
+        .nav-divider {
+            width: 1px;
+            height: 22px;
+            background: var(--color-border-strong);
+            display: inline-block;
+            margin: 0 6px;
+        }
+
+        .nav-link {
+            color: var(--color-text);
+            text-decoration: none;
+            font-size: 0.95em;
+            padding: 6px 10px;
+            border-radius: 8px;
+            transition: background .2s ease, color .2s ease, border-color .2s ease;
+        }
+        .nav-link:hover { background: rgba(255, 255, 255, 0.06); }
+
+        /* Theme toggle */
+        #theme-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--color-text);
+            border-radius: 8px;
+            font-size: 0.95em;
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+        #theme-toggle:hover { background: rgba(255, 255, 255, 0.06); }
+        #theme-icon { display: inline-flex; }
+
+        /* Main content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1em;
+            text-align: center;
+        }
+
+        h1 { font-size: 2.2em; margin-bottom: 0.5em; color: var(--color-text); }
+        h2 { font-size: 1.5em; margin: 1em 0 0.5em; color: var(--color-text); }
+
+        p { margin: 0.4em 0 1.2em; }
+        .muted { color: var(--color-muted); }
+
+        ul { list-style: none; padding: 0; text-align: left; display: inline-block; }
+        ul li::before { content: "• "; color: var(--color-text); }
+
+        .divider { height: 2px; background: var(--color-border-strong); margin: 1.5em 0; }
+
+        /* Collapsible */
+        details {
+            background: var(--color-card);
+            backdrop-filter: blur(8px);
+            border: 2px solid var(--color-border);
+            border-radius: 25px;
+            margin: 1em 0;
+            padding: 1em;
+            text-align: left;
+        }
+        details summary {
+            cursor: pointer;
+            font-size: 1.1em;
+            outline: none;
+            color: var(--color-text);
+        }
+
+        /* Button */
+        .button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 14px;
+            border: 1px solid var(--color-border);
+            background: transparent;
+            color: var(--color-text);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform .05s ease, background .2s ease, border-color .2s ease;
+        }
+        .button:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.18); }
+        .button:active { transform: translateY(1px); }
+
+        /* Footer */
+        footer { text-align: center; padding: 2em 0 3em; color: var(--color-muted); font-size: 0.9em; }
+
+        /* Responsive tweaks */
+        @media (max-width: 560px) {
+            .navbar { padding: 0.8em 1em; }
+            .navbar-right { gap: 8px; }
+            .nav-link { padding: 6px 8px; }
+        }
+    </style>
 </head>
-<body>
-<div class="hero">
-	<!-- Navbar -->
-	<div class="navbar">
-		<div class="navbar-left">
-			<img src="bothead.png" alt="Ordo">
-			<h2>Ordo</h2>
-		</div>
-	</div>
+<body data-scroll-state="at-top">
+    <div class="hero">
+    <!-- Navbar -->
+    <div class="navbar" role="navigation" aria-label="Primary navigation">
+        <div class="navbar-left">
+            <a class="brand-link" href="index.html" aria-label="Ordo Home">
+                <img src="bothead.png" alt="Ordo logo"/>
+                <h2>Ordo</h2>
+            </a>
+            <span class="nav-divider" aria-hidden="true"></span>
+            <a class="nav-link" href="features.html">
+                <!-- sparkles icon kept as before -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-sparkles" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right:6px;vertical-align:text-bottom;">
+                    <path fill-rule="evenodd" d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z" clip-rule="evenodd"/>
+                </svg>
+                Features
+            </a>
+        </div>
 
-	<!-- Main Content -->
-	<div class="container">
-		<h1>🚧 Coming Soon 🚧</h1>
-		<p><span style="color:#B0B5B9;">The next generation of Discord bot tools is on the way.</span></p>
+        <div class="navbar-right">
+            <span class="nav-divider" aria-hidden="true"></span>
+            <button id="theme-toggle" class="nav-link" type="button" aria-label="Toggle theme">
+                <span id="theme-icon">
+                    <!-- default icon gets swapped by JS -->
+                    <!-- moon (dark icon) -->
+                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.89998 0.499976C2.89998 0.279062 2.72089 0.0999756 2.49998 0.0999756C2.27906 0.0999756 2.09998 0.279062 2.09998 0.499976V1.09998H1.49998C1.27906 1.09998 1.09998 1.27906 1.09998 1.49998C1.09998 1.72089 1.27906 1.89998 1.49998 1.89998H2.09998V2.49998C2.09998 2.72089 2.27906 2.89998 2.49998 2.89998C2.72089 2.89998 2.89998 2.72089 2.89998 2.49998V1.89998H3.49998C3.72089 1.89998 3.89998 1.72089 3.89998 1.49998C3.89998 1.27906 3.72089 1.09998 3.49998 1.09998H2.89998V0.499976ZM5.89998 3.49998C5.89998 3.27906 5.72089 3.09998 5.49998 3.09998C5.27906 3.09998 5.09998 3.27906 5.09998 3.49998V4.09998H4.49998C4.27906 4.09998 4.09998 4.27906 4.09998 4.49998C4.09998 4.72089 4.27906 4.89998 4.49998 4.89998H5.09998V5.49998C5.09998 5.72089 5.27906 5.89998 5.49998 5.89998C5.72089 5.89998 5.89998 5.72089 5.89998 5.49998V4.89998H6.49998C6.72089 4.89998 6.89998 4.72089 6.89998 4.49998C6.89998 4.27906 6.72089 4.09998 6.49998 4.09998H5.89998V3.49998ZM1.89998 6.49998C1.89998 6.27906 1.72089 6.09998 1.49998 6.09998C1.27906 6.09998 1.09998 6.27906 1.09998 6.49998V7.09998H0.499976C0.279062 7.09998 0.0999756 7.27906 0.0999756 7.49998C0.0999756 7.72089 0.279062 7.89998 0.499976 7.89998H1.09998V8.49998C1.09998 8.72089 1.27906 8.89997 1.49998 8.89997C1.72089 8.89997 1.89998 8.72089 1.89998 8.49998V7.89998H2.49998C2.72089 7.89998 2.89998 7.72089 2.89998 7.49998C2.89998 7.27906 2.72089 7.09998 2.49998 7.09998H1.89998V6.49998ZM8.54406 0.98184L8.24618 0.941586C8.03275 0.917676 7.90692 1.1655 8.02936 1.34194C8.17013 1.54479 8.29981 1.75592 8.41754 1.97445C8.91878 2.90485 9.20322 3.96932 9.20322 5.10022C9.20322 8.37201 6.82247 11.0878 3.69887 11.6097C3.45736 11.65 3.20988 11.6772 2.96008 11.6906C2.74563 11.702 2.62729 11.9535 2.77721 12.1072C2.84551 12.1773 2.91535 12.2458 2.98667 12.3128L3.05883 12.3795L3.31883 12.6045L3.50684 12.7532L3.62796 12.8433L3.81491 12.9742L3.99079 13.089C4.11175 13.1651 4.23536 13.2375 4.36157 13.3059L4.62496 13.4412L4.88553 13.5607L5.18837 13.6828L5.43169 13.7686C5.56564 13.8128 5.70149 13.8529 5.83857 13.8885C5.94262 13.9155 6.04767 13.9401 6.15405 13.9622C6.27993 13.9883 6.40713 14.0109 6.53544 14.0298L6.85241 14.0685L7.11934 14.0892C7.24637 14.0965 7.37436 14.1002 7.50322 14.1002C11.1483 14.1002 14.1032 11.1453 14.1032 7.50023C14.1032 7.25044 14.0893 7.00389 14.0623 6.76131L14.0255 6.48407C13.991 6.26083 13.9453 6.04129 13.8891 5.82642C13.8213 5.56709 13.7382 5.31398 13.6409 5.06881L13.5279 4.80132L13.4507 4.63542L13.3766 4.48666C13.2178 4.17773 13.0353 3.88295 12.8312 3.60423L12.6782 3.40352L12.4793 3.16432L12.3157 2.98361L12.1961 2.85951L12.0355 2.70246L11.8134 2.50184L11.4925 2.24191L11.2483 2.06498L10.9562 1.87446L10.6346 1.68894L10.3073 1.52378L10.1938 1.47176L9.95488 1.3706L9.67791 1.2669L9.42566 1.1846L9.10075 1.09489L8.83599 1.03486L8.54406 0.98184ZM10.4032 5.30023C10.4032 4.27588 10.2002 3.29829 9.83244 2.40604C11.7623 3.28995 13.1032 5.23862 13.1032 7.50023C13.1032 10.593 10.596 13.1002 7.50322 13.1002C6.63646 13.1002 5.81597 12.9036 5.08355 12.5522C6.5419 12.0941 7.81081 11.2082 8.74322 10.0416C8.87963 10.2284 9.10028 10.3497 9.34928 10.3497C9.76349 10.3497 10.0993 10.0139 10.0993 9.59971C10.0993 9.24256 9.84965 8.94373 9.51535 8.86816C9.57741 8.75165 9.63653 8.63334 9.6926 8.51332C9.88358 8.63163 10.1088 8.69993 10.35 8.69993C11.0403 8.69993 11.6 8.14028 11.6 7.44993C11.6 6.75976 11.0406 6.20024 10.3505 6.19993C10.3853 5.90487 10.4032 5.60464 10.4032 5.30023Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                </span>
+            </button>
+        </div>
+    </div>
 
-		<div class="divider"></div>
+    <!-- Main Content -->
+    <div class="container">
+        <h1>🚧 Coming Soon 🚧</h1>
+        <p class="muted">The next generation of Discord bot tools is on the way.</p>
 
-		<h2>About Ordo</h2>
-		<p>
-        <span style="color:#B0B5B9;">Ordo is designed to be more than “just another bot.” It combines powerful administrative tools,
-        community engagement features, and AI-driven utilities into one reliable assistant. From server security
-		to project organization, Ordo adapts to servers of any size or purpose.</span>
-		</p>
+        <div class="divider"></div>
 
-		<!-- Collapsible Sections -->
-		<details>
-			<summary>Current Features</summary>
-			<ul>
-				<li><strong>Docs System</strong> – <span style="color:#B0B5B9;">Save and recall info in plain text or embeds.</span>
-				</li>
-				<li><strong>Embed Builder</strong> – <span style="color:#B0B5B9;">Craft and log custom embeds with precision.</span>
-				</li>
-				<li><strong>Giveaways</strong> – <span
-						style="color:#B0B5B9;">Run fair giveaways with role-based perks.</span></li>
-				<li><strong>Games & Fun</strong> – <span style="color:#B0B5B9;">Connect 4, Dice, Coin Flip, Achievement command.</span>
-				</li>
-				<li><strong>Listeners & Logs</strong> – <span style="color:#B0B5B9;">Moderation, joins/leaves, edits, deletions, and voice transcriptions.</span>
-				</li>
-				<li><strong>Profiles</strong> – <span style="color:#B0B5B9;">User profiles with timezone, badges, languages, banners, and default colors.</span>
-				</li>
-				<li><strong>Utilities</strong> – <span style="color:#B0B5B9;">Reminders, timestamps, say command.</span>
-				</li>
-				<li><strong>Voice</strong> – <span style="color:#B0B5B9;">Join/leave VC, text-to-speech.</span></li>
-			</ul>
-		</details>
+        <h2>About Ordo</h2>
+        <p class="muted">
+            Ordo is designed to be more than “just another bot.” It combines powerful administrative tools,
+            community engagement features, and AI-driven utilities into one reliable assistant. From server security
+            to project organization, Ordo adapts to servers of any size or purpose.
+        </p>
 
-		<details>
-			<summary>Future Roadmap</summary>
-			<ul>
-				<li>AI Meeting Summaries & Voice Tickets</li>
-				<li>Ticket System with web transcripts</li>
-				<li>Invite Tracking & Channel Lockdowns</li>
-				<li>Staff Reviews & Server Reviews</li>
-				<li>Custom Role Hubs (buttons & menus)</li>
-				<li>Global leveling, auto-post, and media notifications</li>
-				<li>AI Chat Characters (mentionable personalities)</li>
-			</ul>
-		</details>
+        <!-- Collapsible Sections -->
+        <details>
+            <summary>Current Features</summary>
+            <ul>
+                <li><strong>Docs System</strong> — Save and recall info in plain text or embeds.</li>
+                <li><strong>Embed Builder</strong> — Craft and log custom embeds with precision.</li>
+                <li><strong>Giveaways</strong> — Run fair giveaways with role-based perks.</li>
+                <li><strong>Games & Fun</strong> — Connect 4, Dice, Coin Flip, Achievement command.</li>
+                <li><strong>Listeners & Logs</strong> — Joins/leaves, edits, deletions, and <em>voice-message</em> transcription via emoji reaction.</li>
+                <li><strong>Profiles</strong> — Timezone, badges, languages, banners, and default colors.</li>
+                <li><strong>Utilities</strong> — Reminders, timestamps, say command.</li>
+                <li><strong>Voice</strong> — Join/leave VC, text-to-speech.</li>
+            </ul>
+            <a class="button" href="features.html">See all features →</a>
+        </details>
 
-		<details>
-			<summary>Why Ordo?</summary>
-			<p>
-				Ordo is professional, approachable, and organized — built to keep communities structured and efficient.
-				Whether you’re running a large Discord server or managing a small project group, Ordo adapts to your
-				needs
-				while continuing to grow with new AI-driven features.
-			</p>
-			<p><em>“Ordo: The assistant that grows with your community.”</em></p>
-		</details>
-	</div>
-</div>
+        <details>
+            <summary>Future Roadmap</summary>
+            <ul>
+                <li>AI Meeting Summaries & Voice Tickets</li>
+                <li>Ticket System with web transcripts</li>
+                <li>Invite Tracking & Channel Lockdowns</li>
+                <li>Staff Reviews & Server Reviews</li>
+                <li>Custom Role Hubs (buttons & menus)</li>
+                <li>Global leveling, auto-post, and media notifications</li>
+                <li>AI Chat Characters (mentionable personalities)</li>
+            </ul>
+        </details>
+
+        <details>
+            <summary>Why Ordo?</summary>
+            <p>
+                Ordo is professional, approachable, and organized — built to keep communities structured and efficient.
+                Whether you’re running a large Discord server or managing a small project group, Ordo adapts to your
+                needs while continuing to grow with new AI-driven features.
+            </p>
+            <p><em>“Ordo: The assistant that grows with your community.”</em></p>
+        </details>
+        <footer>
+            © <span>2025</span> Ordo — All rights reserved.
+        </footer>
+    </div>
+    </div>
+<script>
+  (function () {
+    const el = document.body;
+    let lastY = window.scrollY;
+
+    function update() {
+      const y = window.scrollY;
+      if (y <= 2) {
+        el.dataset.scrollState = 'at-top';
+      } else {
+        el.dataset.scrollState = (y > lastY) ? 'scrolling-down' : 'scrolling-up';
+      }
+      lastY = y;
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>
+<script>
+    // theme toggle (persist + respects system on first load)
+    (function () {
+        const KEY = "theme";
+        const root = document.documentElement;
+        const btn = document.getElementById("theme-toggle");
+        const iconWrap = document.getElementById("theme-icon");
+
+        const MOON = `<?xml version="1.0"?><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.89998 0.499976C2.89998 0.279062 2.72089 0.0999756 2.49998 0.0999756C2.27906 0.0999756 2.09998 0.279062 2.09998 0.499976V1.09998H1.49998C1.27906 1.09998 1.09998 1.27906 1.09998 1.49998C1.09998 1.72089 1.27906 1.89998 1.49998 1.89998H2.09998V2.49998C2.09998 2.72089 2.27906 2.89998 2.49998 2.89998C2.72089 2.89998 2.89998 2.72089 2.89998 2.49998V1.89998H3.49998C3.72089 1.89998 3.89998 1.72089 3.89998 1.49998C3.89998 1.27906 3.72089 1.09998 3.49998 1.09998H2.89998V0.499976ZM5.89998 3.49998C5.89998 3.27906 5.72089 3.09998 5.49998 3.09998C5.27906 3.09998 5.09998 3.27906 5.09998 3.49998V4.09998H4.49998C4.27906 4.09998 4.09998 4.27906 4.09998 4.49998C4.09998 4.72089 4.27906 4.89998 4.49998 4.89998H5.09998V5.49998C5.09998 5.72089 5.27906 5.89998 5.49998 5.89998C5.72089 5.89998 5.89998 5.72089 5.89998 5.49998V4.89998H6.49998C6.72089 4.89998 6.89998 4.72089 6.89998 4.49998C6.89998 4.27906 6.72089 4.09998 6.49998 4.09998H5.89998V3.49998ZM1.89998 6.49998C1.89998 6.27906 1.72089 6.09998 1.49998 6.09998C1.27906 6.09998 1.09998 6.27906 1.09998 6.49998V7.09998H0.499976C0.279062 7.09998 0.0999756 7.27906 0.0999756 7.49998C0.0999756 7.72089 0.279062 7.89998 0.499976 7.89998H1.09998V8.49998C1.09998 8.72089 1.27906 8.89997 1.49998 8.89997C1.72089 8.89997 1.89998 8.72089 1.89998 8.49998V7.89998H2.49998C2.72089 7.89998 2.89998 7.72089 2.89998 7.49998C2.89998 7.27906 2.72089 7.09998 2.49998 7.09998H1.89998V6.49998ZM8.54406 0.98184L8.24618 0.941586C8.03275 0.917676 7.90692 1.1655 8.02936 1.34194C8.17013 1.54479 8.29981 1.75592 8.41754 1.97445C8.91878 2.90485 9.20322 3.96932 9.20322 5.10022C9.20322 8.37201 6.82247 11.0878 3.69887 11.6097C3.45736 11.65 3.20988 11.6772 2.96008 11.6906C2.74563 11.702 2.62729 11.9535 2.77721 12.1072C2.84551 12.1773 2.91535 12.2458 2.98667 12.3128L3.05883 12.3795L3.31883 12.6045L3.50684 12.7532L3.62796 12.8433L3.81491 12.9742L3.99079 13.089C4.11175 13.1651 4.23536 13.2375 4.36157 13.3059L4.62496 13.4412L4.88553 13.5607L5.18837 13.6828L5.43169 13.7686C5.56564 13.8128 5.70149 13.8529 5.83857 13.8885C5.94262 13.9155 6.04767 13.9401 6.15405 13.9622C6.27993 13.9883 6.40713 14.0109 6.53544 14.0298L6.85241 14.0685L7.11934 14.0892C7.24637 14.0965 7.37436 14.1002 7.50322 14.1002C11.1483 14.1002 14.1032 11.1453 14.1032 7.50023C14.1032 7.25044 14.0893 7.00389 14.0623 6.76131L14.0255 6.48407C13.991 6.26083 13.9453 6.04129 13.8891 5.82642C13.8213 5.56709 13.7382 5.31398 13.6409 5.06881L13.5279 4.80132L13.4507 4.63542L13.3766 4.48666C13.2178 4.17773 13.0353 3.88295 12.8312 3.60423L12.6782 3.40352L12.4793 3.16432L12.3157 2.98361L12.1961 2.85951L12.0355 2.70246L11.8134 2.50184L11.4925 2.24191L11.2483 2.06498L10.9562 1.87446L10.6346 1.68894L10.3073 1.52378L10.1938 1.47176L9.95488 1.3706L9.67791 1.2669L9.42566 1.1846L9.10075 1.09489L8.83599 1.03486L8.54406 0.98184ZM10.4032 5.30023C10.4032 4.27588 10.2002 3.29829 9.83244 2.40604C11.7623 3.28995 13.1032 5.23862 13.1032 7.50023C13.1032 10.593 10.596 13.1002 7.50322 13.1002C6.63646 13.1002 5.81597 12.9036 5.08355 12.5522C6.5419 12.0941 7.81081 11.2082 8.74322 10.0416C8.87963 10.2284 9.10028 10.3497 9.34928 10.3497C9.76349 10.3497 10.0993 10.0139 10.0993 9.59971C10.0993 9.24256 9.84965 8.94373 9.51535 8.86816C9.57741 8.75165 9.63653 8.63334 9.6926 8.51332C9.88358 8.63163 10.1088 8.69993 10.35 8.69993C11.0403 8.69993 11.6 8.14028 11.6 7.44993C11.6 6.75976 11.0406 6.20024 10.3505 6.19993C10.3853 5.90487 10.4032 5.60464 10.4032 5.30023Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>`;
+        const SUN = `<?xml version="1.0"?><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 0C7.77614 0 8 0.223858 8 0.5V2.5C8 2.77614 7.77614 3 7.5 3C7.22386 3 7 2.77614 7 2.5V0.5C7 0.223858 7.22386 0 7.5 0ZM2.1967 2.1967C2.39196 2.00144 2.70854 2.00144 2.90381 2.1967L4.31802 3.61091C4.51328 3.80617 4.51328 4.12276 4.31802 4.31802C4.12276 4.51328 3.80617 4.51328 3.61091 4.31802L2.1967 2.90381C2.00144 2.70854 2.00144 2.39196 2.1967 2.1967ZM0.5 7C0.223858 7 0 7.22386 0 7.5C0 7.77614 0.223858 8 0.5 8H2.5C2.77614 8 3 7.77614 3 7.5C3 7.22386 2.77614 7 2.5 7H0.5ZM2.1967 12.8033C2.00144 12.608 2.00144 12.2915 2.1967 12.0962L3.61091 10.682C3.80617 10.4867 4.12276 10.4867 4.31802 10.682C4.51328 10.8772 4.51328 11.1938 4.31802 11.3891L2.90381 12.8033C2.70854 12.9986 2.39196 12.9986 2.1967 12.8033ZM12.5 7C12.2239 7 12 7.22386 12 7.5C12 7.77614 12.2239 8 12.5 8H14.5C14.7761 8 15 7.77614 15 7.5C15 7.22386 14.7761 7 14.5 7H12.5ZM10.682 4.31802C10.4867 4.12276 10.4867 3.80617 10.682 3.61091L12.0962 2.1967C12.2915 2.00144 12.608 2.00144 12.8033 2.1967C12.9986 2.39196 12.9986 2.70854 12.8033 2.90381L11.3891 4.31802C11.1938 4.51328 10.8772 4.51328 10.682 4.31802ZM8 12.5C8 12.2239 7.77614 12 7.5 12C7.22386 12 7 12.2239 7 12.5V14.5C7 14.7761 7.22386 15 7.5 15C7.77614 15 8 14.7761 8 14.5V12.5ZM10.682 10.682C10.8772 10.4867 11.1938 10.4867 11.3891 10.682L12.8033 12.0962C12.9986 12.2915 12.9986 12.608 12.8033 12.8033C12.608 12.9986 12.2915 12.9986 12.0962 12.8033L10.682 11.3891C10.4867 11.1938 10.4867 10.8772 10.682 10.682ZM5.5 7.5C5.5 6.39543 6.39543 5.5 7.5 5.5C8.60457 5.5 9.5 6.39543 9.5 7.5C9.5 8.60457 8.60457 9.5 7.5 9.5C6.39543 9.5 5.5 8.60457 5.5 7.5ZM7.5 4.5C5.84315 4.5 4.5 5.84315 4.5 7.5C4.5 9.15685 5.84315 10.5 7.5 10.5C9.15685 10.5 10.5 9.15685 10.5 7.5C10.5 5.84315 9.15685 4.5 7.5 4.5Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>`;
+
+        function setTheme(t) {
+            root.classList.remove("dark-theme", "light-theme");
+            root.classList.add(t);
+            localStorage.setItem(KEY, t);
+            iconWrap.innerHTML = t === "dark-theme" ? MOON : SUN;
+        }
+
+        const saved = localStorage.getItem(KEY);
+        const initial = saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark-theme" : "light-theme");
+        setTheme(initial);
+
+        btn.addEventListener("click", () => {
+            setTheme(root.classList.contains("dark-theme") ? "light-theme" : "dark-theme");
+        });
+    })();
+</script>
 </body>
 </html>

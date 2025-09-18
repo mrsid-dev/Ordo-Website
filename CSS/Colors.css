@@ -1,0 +1,56 @@
+:root {
+  /* 🎨 Brand */
+  --brand: #A30F2D;
+  --brand-dark: #8B0C26;
+  --brand-light: #D16063;
+
+  /* ☀️ Light Theme (fallback/default tokens) */
+  --bg: #FAF8F3;
+  --panel: #FEFEFE;
+  --panel-2: #F5F3EE;
+  --text: #2C2C2C;
+  --muted: #6B7280;
+  --border: #E8E6E1;
+
+  /* ⚫ Greys (also Silver) */
+  --grey-1: #3A3D40;
+  --grey-2: #7D8286;
+  --grey-3: #D2D5DA;
+
+  /* ✅ Status */
+  --success: #2B7A5B;
+  --success-light: #4FB187;
+  --warn: #D4A72C;
+  --warn-light: #EBCB68;
+  --error: #B43E47;
+  --error-light: #E97C80;
+  --info: #4B6EDC;
+  --info-light: #6FA9D9;
+
+  /* 📊 Charts */
+  --chart-red: #A30F2D;
+  --chart-blue: #4B6EDC;
+  --chart-green: #2B7A5B;
+  --chart-orange: #C7682B;
+  --chart-purple: #6E4FA3;
+  --chart-teal: #2C9CA6;
+  --chart-pink: #B84C7F;
+
+  /* Layout / Fonts */
+  --radius: 14px;
+  --pad: 16px;
+  --gap: 12px;
+  --font-display: "Fredoka", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --font-body: "Nunito", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* 🌙 Dark Theme Override (applies when <body class="dark">) */
+.dark {
+  --bg: #1C1E21;
+  --panel: #2A2D31;
+  --panel-2: #3A3D42;
+  --text: #F8F9FA;
+  --muted: #9CA3AF;
+  --border: #42464B;
+}

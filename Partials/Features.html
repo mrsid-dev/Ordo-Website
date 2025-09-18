@@ -1,0 +1,252 @@
+<div class="page-header">
+  <div class="page-title">Features</div>
+
+  <!-- Toolbar + Popover -->
+  <div class="features-toolbar" style="margin-left:auto; position:relative">
+    <button id="filterBtn" class="button secondary">
+      <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#filter"></use></svg>
+      Filters
+    </button>
+
+    <!-- Popover (now real, not commented) -->
+    <div id="filterPopover" class="filter-popover" style="display:none">
+      <label><input type="checkbox" value="moderation" checked> Moderation & Logging</label>
+      <label><input type="checkbox" value="engagement" checked> Community Engagement</label>
+      <label><input type="checkbox" value="customization" checked> Customization & Profiles</label>
+      <label><input type="checkbox" value="utility" checked> Utility & Productivity</label>
+      <label><input type="checkbox" value="fun" checked> Fun & Games</label>
+      <label><input type="checkbox" value="support" checked> Support & Reliability</label>
+    </div>
+  </div>
+</div>
+
+
+<!-- 2-per-row grid -->
+<div class="features-grid">
+
+  <!-- Moderation & Logging -->
+  <div class="feature-card" data-tags="moderation,logging">
+    <div class="card-actions">
+      <button class="icon-btn" type="button" data-modal aria-label="More details" title="More">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#arrow-up-right"></use></svg>
+      </button>
+    </div>
+    <h4>Audit & Event Logs</h4>
+    <div class="feature-meta">Moderation & Logging</div>
+    <p class="muted">Track joins/leaves, message edits, deletions, and more.</p>
+    <template data-modal-content>
+      <ul class="stack">
+        <li><strong>Logged:</strong> member joins/leaves, message edits/deletes, and other server actions.</li>
+        <li><strong>Target:</strong> server audit channel.</li>
+        <li><strong>Use:</strong> troubleshoot issues, verify moderation actions.</li>
+      </ul>
+    </template>
+  </div>
+
+  <div class="feature-card" data-tags="moderation,transcription,accessibility">
+    <div class="card-actions">
+      <button class="icon-btn" type="button" data-modal aria-label="More details" title="More">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#arrow-up-right"></use></svg>
+      </button>
+    </div>
+    <h4>Voice-Message Transcription</h4>
+    <div class="feature-meta">Moderation & Logging</div>
+    <p class="muted">React to a voice <em>message</em> with a set emoji to post the text transcript.</p>
+    <template data-modal-content>
+      <ul class="stack">
+        <li><strong>Scope:</strong> voice <em>messages</em> only (not live VC).</li>
+        <li><strong>Trigger:</strong> specific reaction emoji.</li>
+        <li><strong>Outcome:</strong> transcript is posted back for accessibility/mod review.</li>
+      </ul>
+    </template>
+  </div>
+
+  <!-- Engagement -->
+  <div class="feature-card" data-tags="engagement,giveaways">
+    <div class="card-actions">
+      <button class="icon-btn" type="button" data-modal aria-label="More details" title="More">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#arrow-up-right"></use></svg>
+      </button>
+    </div>
+    <h4>Giveaways</h4>
+    <div class="feature-meta">Community Engagement</div>
+    <p class="muted">Fair drawings with role-based perks and anti-abuse protections.</p>
+    <template data-modal-content>
+      <ul class="stack">
+        <li><strong>Modes:</strong> single or multi-winner.</li>
+        <li><strong>Perks:</strong> role-weighted odds.</li>
+        <li><strong>Protections:</strong> anti-abuse checks, clean rerolls.</li>
+      </ul>
+    </template>
+  </div>
+
+  <!-- Customization & Profiles -->
+  <div class="feature-card" data-tags="customization,profiles">
+    <div class="card-actions">
+      <button class="icon-btn" type="button" data-modal aria-label="More details" title="More">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#arrow-up-right"></use></svg>
+      </button>
+    </div>
+    <h4>User Profiles</h4>
+    <div class="feature-meta">Customization & Profiles</div>
+    <p class="muted">Timezone, badges, languages, banners, and default colors.</p>
+    <template data-modal-content>
+      <ul class="stack">
+        <li><strong>Prefs:</strong> timezone, language, default color.</li>
+        <li><strong>Visuals:</strong> profile banners & badges.</li>
+        <li><strong>Future-ready:</strong> plugs into other features for personalization.</li>
+      </ul>
+    </template>
+  </div>
+
+  <!-- Utility & Productivity -->
+  <div class="feature-card" data-tags="utility,docs">
+    <div class="card-actions">
+      <button class="icon-btn" type="button" data-modal aria-label="More details" title="More">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#arrow-up-right"></use></svg>
+      </button>
+    </div>
+    <h4>Docs System</h4>
+    <div class="feature-meta">Utility & Productivity</div>
+    <p class="muted">Save, recall, and manage reusable snippets (plain text or embeds).</p>
+    <template data-modal-content>
+      <ul class="stack">
+        <li><strong>Create:</strong> <code>/doc create</code> for Plain or Embed with preview.</li>
+        <li><strong>Scopes:</strong> Server Doc, Personal Doc, or Both.</li>
+        <li><strong>Find/Post:</strong> <code>/doc find</code> with mentions, public/ephemeral, autocomplete.</li>
+        <li><strong>Edit:</strong> <code>/doc edit</code> — modal for Plain, builder for Embed.</li>
+        <li><strong>Copy:</strong> <code>/doc copy</code> between Personal ↔ Server.</li>
+        <li><strong>Delete:</strong> <code>/doc delete</code> with preview + confirm.</li>
+        <li><strong>Limits:</strong> 15 server docs / 10 personal docs; premium bypass.</li>
+        <li><strong>Logging:</strong> all actions logged to the server audit channel.</li>
+      </ul>
+    </template>
+  </div>
+
+  <div class="feature-card" data-tags="utility,embeds,announcements">
+    <div class="card-actions">
+      <button class="icon-btn" type="button" data-modal aria-label="More details" title="More">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#arrow-up-right"></use></svg>
+      </button>
+    </div>
+    <h4>Embed Builder</h4>
+    <div class="feature-meta">Utility & Productivity</div>
+    <p class="muted">Multi-embed announcements with tags, images, colors, and saved presets.</p>
+    <template data-modal-content>
+      <ul class="stack">
+        <li><strong>Editor:</strong> Author, Title(+URL), Description, Fields, Image, Thumb, Footer, Color, Timestamp.</li>
+        <li><strong>Message layer:</strong> message text, mentions, optional attachment.</li>
+        <li><strong>Multi-embed:</strong> create/switch multiple embeds; live preview; delete any.</li>
+        <li><strong>Toggles & validation:</strong> quick on/off; URL/attachment checks.</li>
+        <li><strong>Save & reuse:</strong> post to channel, save to bot (versioned), export/import JSON; audit logs.</li>
+        <li><strong>Load:</strong> saved versions, DM JSON import, or by message link.</li>
+        <li><strong>Targets:</strong> post “here” or choose channel; forum threads prompt for title.</li>
+        <li><strong>Colors:</strong> preset swatches + custom hex.</li>
+      </ul>
+    </template>
+  </div>
+
+  <div class="feature-card" data-tags="utility,time,reminders">
+    <div class="card-actions">
+      <button class="icon-btn" type="button" data-modal aria-label="More details" title="More">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#arrow-up-right"></use></svg>
+      </button>
+    </div>
+    <h4>Reminders & Timestamps</h4>
+    <div class="feature-meta">Utility & Productivity</div>
+    <p class="muted">Quick scheduling and time formatting.</p>
+    <template data-modal-content>
+      <ul class="stack">
+        <li><strong>Remind:</strong> lightweight reminders for channels or DMs.</li>
+        <li><strong>Timestamps:</strong> create Discord’s relative/absolute time codes.</li>
+      </ul>
+    </template>
+  </div>
+
+  <div class="feature-card" data-tags="utility,voice">
+    <div class="card-actions">
+      <button class="icon-btn" type="button" data-modal aria-label="More details" title="More">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#arrow-up-right"></use></svg>
+      </button>
+    </div>
+    <h4>Voice</h4>
+    <div class="feature-meta">Utility & Productivity</div>
+    <p class="muted">Join/leave VC + text-to-speech helpers.</p>
+    <template data-modal-content>
+      <ul class="stack">
+        <li><strong>VC helpers:</strong> simple join/leave tools.</li>
+        <li><strong>TTS:</strong> text-to-speech basics for quick announcements.</li>
+      </ul>
+    </template>
+  </div>
+
+  <!-- Fun & Games -->
+  <div class="feature-card" data-tags="fun,games">
+    <div class="card-actions">
+      <button class="icon-btn" type="button" data-modal aria-label="More details" title="More">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#arrow-up-right"></use></svg>
+      </button>
+    </div>
+    <h4>Mini-Games</h4>
+    <div class="feature-meta">Fun & Games</div>
+    <p class="muted">Connect 4, Dice, Coin Flip — quick interactive games.</p>
+    <template data-modal-content>
+      <ul class="stack">
+        <li><strong>Connect 4:</strong> grid-based classic, quick matches.</li>
+        <li><strong>Dice & Coin:</strong> lightweight outcomes for chats and giveaways.</li>
+      </ul>
+    </template>
+  </div>
+
+  <div class="feature-card" data-tags="fun,memes">
+    <div class="card-actions">
+      <button class="icon-btn" type="button" data-modal aria-label="More details" title="More">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#arrow-up-right"></use></svg>
+      </button>
+    </div>
+    <h4>Achievement</h4>
+    <div class="feature-meta">Fun & Games</div>
+    <p class="muted">Generate playful achievements on demand.</p>
+    <template data-modal-content>
+      <ul class="stack">
+        <li><strong>Custom text:</strong> eg. “Caught red-handed.”</li>
+        <li><strong>Shareable:</strong> quick laughs for community moments.</li>
+      </ul>
+    </template>
+  </div>
+
+  <!-- Support & Reliability -->
+  <div class="feature-card" data-tags="support,reliability">
+    <div class="card-actions">
+      <button class="icon-btn" type="button" data-modal aria-label="More details" title="More">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#arrow-up-right"></use></svg>
+      </button>
+    </div>
+    <h4>Error Help & Support</h4>
+    <div class="feature-meta">Support & Reliability</div>
+    <p class="muted">Clear reasons, friendly ephemerals, and reference codes when something fails.</p>
+    <template data-modal-content>
+      <ul class="stack">
+        <li><strong>Readable reasons:</strong> missing perms/roles, cooldowns, invalid input — shown as <em>ephemeral</em> embed.</li>
+        <li><strong>Reference codes:</strong> each error reply has a short code for staff to jump to logs.</li>
+        <li><strong>Private logs:</strong> full context logged privately; users see a clean message.</li>
+        <li><strong>Background safety:</strong> loops & events are error-handled with guild/channel/user info.</li>
+        <li><strong>Unified handling:</strong> slash, prefix, buttons/menus handled consistently.</li>
+      </ul>
+    </template>
+  </div>
+
+</div>
+
+<!-- Global modal instance (one per page) -->
+<div id="featureModalBackdrop" class="modal-backdrop is-hidden" role="dialog" aria-modal="true" aria-labelledby="featureModalTitle">
+  <div class="modal">
+    <div class="modal-header">
+      <div id="featureModalTitle" class="modal-title">Title</div>
+      <button class="modal-close" id="featureModalClose" aria-label="Close">
+        <svg class="icon-16" aria-hidden="true"><use href="icons/icons.svg#x"></use></svg>
+      </button>
+    </div>
+    <div id="featureModalBody" class="modal-body"></div>
+  </div>
+</div>

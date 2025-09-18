@@ -1,0 +1,33 @@
+<div class="sidebar">
+  <!-- Brand -->
+  <div class="brand">
+    <img src="Icons/bothead.png" alt="Ordo Logo" class="brand__logo" />
+    <div class="brand__name">Ordo</div>
+  </div>
+
+  <nav class="nav" role="navigation">
+    <a href="#/" data-route="/" class="active" title="Home">
+      <svg class="nav__icon" aria-hidden="true">
+        <use href="icons/icons.svg#home" xlink:href="icons/icons.svg#home"></use>
+      </svg>
+      <span class="nav__label">Home</span>
+    </a>
+
+    <a href="#/features" data-route="/features" title="Features">
+      <svg class="nav__icon" aria-hidden="true">
+        <use href="icons/icons.svg#sparkles" xlink:href="icons/icons.svg#sparkles"></use>
+      </svg>
+      <span class="nav__label">Features</span>
+    </a>
+  </nav>
+
+  <div class="sidebar__footer">
+    <button class="toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+      <svg id="themeIcon" class="icon" aria-hidden="true">
+        <use href="icons/icons.svg#sun" xlink:href="icons/icons.svg#sun"></use>
+      </svg>
+      <span class="label">Theme</span>
+    </button>
+    <a href="#" class="sidebar-version" style="text-decoration:none;color:var(--muted);font-weight:700;">v0.1</a>
+  </div>
+</div>

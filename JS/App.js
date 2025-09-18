@@ -165,18 +165,18 @@ async function renderRoute() {
   const route = hash.replace('#', '');
   switch (route) {
     case '/':
-      await loadPartial('#content', 'partials/home.html');
+      await loadPartial('#content', 'Partials/Home.html');
       setActive('/');
       break;
     case '/features':
-      await loadPartial('#content', 'partials/features.html');
+      await loadPartial('#content', 'Partials/Features.html');
       setActive('/features');
       // wire up Features page behavior AFTER the partial is in the DOM
       initFeaturesInteractions();
       initFeaturesFilters();
       break;
     default:
-      await loadPartial('#content', 'partials/home.html');
+      await loadPartial('#content', 'Partials/Home.html');
       setActive('/');
   }
 }
@@ -186,7 +186,7 @@ async function renderRoute() {
 // -----------------------------
 (async function boot() {
   // 1) Load the sidebar partial first (needed for theme/collapse wiring)
-  await loadPartial('#sidebar', 'partials/Navbar.html');
+  await loadPartial('#sidebar', 'Partials/Navbar.html');
 
   // Theme (dark by default)
   const THEME_KEY = 'ordo-theme';
@@ -196,7 +196,7 @@ async function renderRoute() {
   const themeIcon = document.getElementById('themeIcon');
   function syncThemeIcon() {
     const isDark = document.body.classList.contains('dark');
-    const id = isDark ? 'icons/icons.svg#moon' : 'icons/icons.svg#sun';
+    const id = isDark ? 'Icons/Icons.svg#moon' : 'Icons/Icons.svg#sun';
     const useEl = themeIcon.querySelector('use');
     useEl.setAttribute('href', id);
     useEl.setAttribute('xlink:href', id);
@@ -216,8 +216,8 @@ async function renderRoute() {
   function syncCollapseIcon(){
     const isCollapsed = document.body.classList.contains('sidebar-collapsed');
     const id = isCollapsed
-      ? 'icons/icons.svg#arrow-badge-right'
-      : 'icons/icons.svg#arrow-badge-left';
+      ? 'Icons/Icons.svg#arrow-badge-right'
+      : 'Icons/Icons.svg#arrow-badge-left';
     const useEl = collapseBtn.querySelector('use');
     useEl.setAttribute('href', id);
     useEl.setAttribute('xlink:href', id);

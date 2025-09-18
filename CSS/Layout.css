@@ -17,7 +17,7 @@ body {
 .sidebar {
   position: fixed;
   top: 0; left: 0;
-  width: 20%;
+  width: 200px;                 /* expanded width */
   height: 100vh;
   z-index: 20;
 
@@ -38,7 +38,7 @@ body {
 .collapse-fab {
   position: fixed;
   top: 28px;
-  left: calc(20% - 15px); /* starts just off the right edge of sidebar */
+  left: calc(200px - 15px); /* starts just off the right edge of sidebar */
   width: 32px;
   height: 32px;
   display: flex;
@@ -69,7 +69,7 @@ body {
 
 /* Move FAB when collapsed */
 body.sidebar-collapsed .collapse-fab {
-  left: calc(5% - 10px); /* keep half-overlapping collapsed sidebar */
+  left: calc(78px - 15px); /* keep half-overlapping collapsed sidebar */
 }
 
 /* ---------- Brand (minimal) ---------- */
@@ -138,14 +138,14 @@ body.sidebar-collapsed .collapse-fab {
 
 /* ---------- Main content (offset by fixed sidebar) ---------- */
 .main {
-  margin-left: 21%;          /* match expanded width */
+  margin-left: 230px;          /* match expanded width */
   padding: var(--pad);
   transition: margin-left .25s ease;
 }
 
 /* ---------- Collapsed state: icons only ---------- */
 body.sidebar-collapsed .sidebar { width: 78px; }
-body.sidebar-collapsed .main    { margin-left: 6%; }
+body.sidebar-collapsed .main    { margin-left: 90px; }
 
 /* Center the brand icon; fully remove the text so it doesn't reserve space */
 body.sidebar-collapsed .brand { justify-content: center; }

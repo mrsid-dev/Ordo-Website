@@ -1,6 +1,12 @@
 /* ---------- Global ---------- */
 * { box-sizing: border-box; }
-html, body { height: 100%; overflow-x: hidden; } /* prevent horiz scroll from floating bits */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: var(--bg);
+  overflow-x: hidden;
+}
 
 body {
   margin: 0;

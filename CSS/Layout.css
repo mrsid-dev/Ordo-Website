@@ -24,7 +24,7 @@ body {
   position: fixed;
   top: 0; left: 0;
   width: 200px;                 /* expanded width */
-  height: 100%;
+  height: 100vh;
   z-index: 20;
 
   display: flex;
@@ -145,7 +145,7 @@ body.sidebar-collapsed .collapse-fab {
 /* ---------- Main content (offset by fixed sidebar) ---------- */
 .main {
   margin-left: 230px;  /* match expanded width */
-  height: 100%;
+  height: 100vh;
   padding: var(--pad);
   transition: margin-left .25s ease;
 }

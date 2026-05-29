@@ -17,69 +17,6 @@ function setActive(route) {
 }
 
 // -----------------------------
-// Collapsed tooltips for sidebar (show only when collapsed)
-// -----------------------------
-function enableCollapsedTooltips(){
-  const sidebar = document.querySelector('.sidebar');
-  if (!sidebar) return;
-
-  const links = sidebar.querySelectorAll('.nav a');
-  let tipEl = null;
-
-  function showTip(e){
-    if (!document.body.classList.contains('sidebar-collapsed')) return;
-    const link = e.currentTarget;
-    const label =
-      link.getAttribute('title') ||
-      link.dataset.tooltip ||
-      (link.querySelector('.nav__label')?.textContent || '').trim();
-
-    if (!label) return;
-
-    // Suppress native title while our custom tooltip is visible
-    if (!link.dataset._title && link.hasAttribute('title')) {
-      link.dataset._title = link.getAttribute('title');
-      link.removeAttribute('title');
-    }
-
-    if (!tipEl){
-      tipEl = document.createElement('div');
-      tipEl.className = 'sidebar-tooltip';
-      document.body.appendChild(tipEl);
-    }
-    tipEl.textContent = label;
-
-    const rect = link.getBoundingClientRect();
-    const left = rect.right + 12;
-    const top  = rect.top + rect.height/2;
-
-    tipEl.style.left = left + 'px';
-    tipEl.style.top  = top  + 'px';
-    tipEl.style.opacity = '1';
-  }
-
-  function hideTip(e){
-    if (tipEl) tipEl.style.opacity = '0';
-    const link = e.currentTarget;
-    if (link.dataset._title){
-      link.setAttribute('title', link.dataset._title);
-      delete link.dataset._title;
-    }
-  }
-
-  links.forEach(link=>{
-    link.addEventListener('mouseenter', showTip);
-    link.addEventListener('mouseleave', hideTip);
-    link.addEventListener('focus', showTip);
-    link.addEventListener('blur', hideTip);
-  });
-
-  window.addEventListener('hashchange', ()=>{
-    if (tipEl){ tipEl.remove(); tipEl = null; }
-  });
-}
-
-// -----------------------------
 // Features: modal (opens from card action button)
 // -----------------------------
 function initFeaturesInteractions(){
@@ -209,29 +146,31 @@ async function renderRoute() {
   });
   syncThemeIcon();
 
-  // Sidebar collapse (uses floating FAB)
-  const COLLAPSE_KEY = 'ordo-collapsed';
-  document.body.classList.toggle('sidebar-collapsed', localStorage.getItem(COLLAPSE_KEY) === 'true');
+  // Sidebar drawer (uses floating FAB)
+  localStorage.removeItem('ordo-collapsed');
   const collapseBtn = document.getElementById('collapseToggle');
-  function syncCollapseIcon(){
-    const isCollapsed = document.body.classList.contains('sidebar-collapsed');
-    const id = isCollapsed
-      ? 'Icons/Icons.svg#arrow-badge-right'
-      : 'Icons/Icons.svg#arrow-badge-left';
+  const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+  function setSidebarOpen(isOpen){
+    document.body.classList.toggle('sidebar-open', isOpen);
+    sidebarBackdrop.hidden = !isOpen;
+    collapseBtn.setAttribute('aria-expanded', String(isOpen));
+    collapseBtn.setAttribute('aria-label', isOpen ? 'Close sidebar' : 'Open sidebar');
+    const id = isOpen ? 'Icons/Icons.svg#x' : 'Icons/Icons.svg#arrow-badge-right';
     const useEl = collapseBtn.querySelector('use');
     useEl.setAttribute('href', id);
     useEl.setAttribute('xlink:href', id);
   }
   collapseBtn?.addEventListener('click', ()=>{
-    const makeCollapsed = !document.body.classList.contains('sidebar-collapsed');
-    document.body.classList.toggle('sidebar-collapsed', makeCollapsed);
-    localStorage.setItem(COLLAPSE_KEY, String(makeCollapsed));
-    syncCollapseIcon();
+    setSidebarOpen(!document.body.classList.contains('sidebar-open'));
   });
-  syncCollapseIcon();
-
-  // Sidebar tooltips (when collapsed)
-  enableCollapsedTooltips();
+  sidebarBackdrop?.addEventListener('click', () => setSidebarOpen(false));
+  document.querySelector('.sidebar')?.addEventListener('click', (e) => {
+    if (e.target.closest('.nav a')) setSidebarOpen(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setSidebarOpen(false);
+  });
+  setSidebarOpen(false);
 
   // Initial route + listener
   window.addEventListener('hashchange', renderRoute);

@@ -19,11 +19,13 @@
     <!-- Sidebar gets injected here from partials/Navbar.html -->
     <aside id="sidebar" aria-label="Sidebar Navigation"></aside>
 
-    <!-- Floating collapse/expand FAB (independent of the sidebar) -->
-    <button class="collapse-fab" id="collapseToggle" aria-label="Collapse sidebar">
+    <div class="sidebar-backdrop" id="sidebarBackdrop" hidden></div>
+
+    <!-- Mobile sidebar toggle -->
+    <button class="collapse-fab" id="collapseToggle" aria-label="Open sidebar" aria-expanded="false" aria-controls="sidebar">
       <svg class="icon" aria-hidden="true">
-        <!-- shows “collapse” icon by default; JS swaps to right arrow when collapsed -->
-        <use href="Icons/Icons.svg#arrow-badge-left" xlink:href="Icons/Icons.svg#arrow-badge-left"></use>
+        <!-- JS swaps between open and close icons. -->
+        <use href="Icons/Icons.svg#arrow-badge-right" xlink:href="Icons/Icons.svg#arrow-badge-right"></use>
       </svg>
     </button>
 

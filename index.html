@@ -3,40 +3,20 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ordo – Dashboard</title>
+  <title>Ordo - Discord Bot Tools</title>
   <link rel="icon" type="image/png" href="Icons/bothead.png">
 
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Styles (capitalized to match your files) -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700;900&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="CSS/Colors.css">
   <link rel="stylesheet" href="CSS/Layout.css">
 </head>
 <body>
   <div class="app">
-    <!-- Sidebar gets injected here from partials/Navbar.html -->
-    <aside id="sidebar" aria-label="Sidebar Navigation"></aside>
-
-    <div class="sidebar-backdrop" id="sidebarBackdrop" hidden></div>
-
-    <!-- Mobile sidebar toggle -->
-    <button class="collapse-fab" id="collapseToggle" aria-label="Open sidebar" aria-expanded="false" aria-controls="sidebar">
-      <svg class="icon" aria-hidden="true">
-        <!-- JS swaps between open and close icons. -->
-        <use href="Icons/Icons.svg#arrow-badge-right" xlink:href="Icons/Icons.svg#arrow-badge-right"></use>
-      </svg>
-    </button>
-
-    <!-- Main content area; partials (home/features) are injected here -->
-    <main id="content" class="main"></main>
+    <header id="siteHeader" class="site-header"></header>
+    <main id="content" class="main" tabindex="-1"></main>
   </div>
 
-  <!-- SVG sprite (symbols) noop to prewarm sprite usage -->
   <svg style="display:none"><use href="Icons/Icons.svg#noop"/></svg>
-
-  <!-- App logic (capitalized to match your file) -->
   <script src="JS/App.js"></script>
 </body>
 </html>

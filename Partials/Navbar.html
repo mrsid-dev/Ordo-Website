@@ -1,33 +1,19 @@
-<div class="sidebar">
-  <!-- Brand -->
-  <div class="brand">
-    <img src="Icons/bothead.png" alt="Ordo Logo" class="brand__logo" />
-    <div class="brand__name">Ordo</div>
-  </div>
+<div class="nav-shell">
+  <a class="brand" href="#/" aria-label="Ordo home">
+    <img src="Icons/ordo_mascot_head.png" alt="" class="brand__logo" />
+    <span class="brand__name">Ordo</span>
+  </a>
 
-  <nav class="nav" role="navigation">
-    <a href="#/" data-route="/" class="active" title="Home">
-      <svg class="nav__icon" aria-hidden="true">
-        <use href="Icons/Icons.svg#home" xlink:href="Icons/Icons.svg#home"></use>
-      </svg>
-      <span class="nav__label">Home</span>
-    </a>
+  <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">
+    <span></span>
+    <span></span>
+  </button>
 
-    <a href="#/features" data-route="/features" title="Features">
-      <svg class="nav__icon" aria-hidden="true">
-        <use href="Icons/Icons.svg#sparkles" xlink:href="Icons/Icons.svg#sparkles"></use>
-      </svg>
-      <span class="nav__label">Features</span>
-    </a>
+  <nav class="nav" id="primaryNav" aria-label="Primary navigation">
+    <a class="nav-link active" href="#/" data-route="/">Home</a>
+    <a class="nav-link" href="#/features" data-route="/features">Features</a>
+    <a class="nav-link" href="#/docs" data-route="/docs">Docs</a>
+    <a class="nav-link" href="#/support" data-route="/support">Support</a>
+    <a class="button button--small nav-cta" href="#" aria-label="Add Ordo to Discord">Add Bot</a>
   </nav>
-
-  <div class="sidebar__footer">
-    <button class="toggle" id="themeToggle" type="button" aria-label="Toggle theme">
-      <svg id="themeIcon" class="icon" aria-hidden="true">
-        <use href="Icons/Icons.svg#sun" xlink:href="Icons/Icons.svg#sun"></use>
-      </svg>
-      <span class="label">Theme</span>
-    </button>
-    <a href="#" class="sidebar-version" style="text-decoration:none;color:var(--muted);font-weight:700;">v0.1</a>
-  </div>
 </div>

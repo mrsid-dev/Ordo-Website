@@ -372,14 +372,46 @@ function initDocsReference() {
 }
 
 const routes = {
-  '/': { partial: 'Partials/Home.html', active: '/' },
-  '/features': { partial: 'Partials/Features.html', active: '/features', init: [initFeaturesInteractions, initFeaturesFilters] },
-  '/docs': { partial: 'Partials/Docs.html', active: '/docs', init: [initDocsReference] },
-  '/support': { partial: 'Partials/Support.html', active: '/support' },
+  '/': { partial: '/Partials/Home.html', active: '/' },
+  '/features': { partial: '/Partials/Features.html', active: '/features', init: [initFeaturesInteractions, initFeaturesFilters] },
+  '/docs': { partial: '/Partials/Docs.html', active: '/docs', init: [initDocsReference] },
+  '/support': { partial: '/Partials/Support.html', active: '/support' },
 };
 
+function cleanRoute(pathname) {
+  let route = pathname.replace(/\/index\.html$/, '/');
+  if (route.length > 1) route = route.replace(/\/$/, '');
+  return routes[route] ? route : '/';
+}
+
+function redirectLegacyHashRoute() {
+  if (!location.hash.startsWith('#/')) return;
+
+  const hashRoute = location.hash.slice(1);
+  const route = cleanRoute(hashRoute);
+  history.replaceState(null, '', route);
+}
+
+function initAppNavigation() {
+  document.addEventListener('click', (event) => {
+    const link = event.target.closest('a[data-route]');
+    if (!link) return;
+
+    const url = new URL(link.href, location.href);
+    if (url.origin !== location.origin) return;
+
+    const route = cleanRoute(url.pathname);
+    if (!routes[route]) return;
+
+    event.preventDefault();
+    history.pushState(null, '', route);
+    renderRoute();
+  });
+}
+
 async function renderRoute() {
-  const route = (location.hash || '#/').replace('#', '');
+  redirectLegacyHashRoute();
+  const route = cleanRoute(location.pathname);
   const config = routes[route] || routes['/'];
   await loadPartial('#content', config.partial);
   setActive(config.active);
@@ -389,9 +421,11 @@ async function renderRoute() {
 }
 
 (async function boot() {
-  await loadPartial('#siteHeader', 'Partials/Navbar.html');
-  await loadPartial('#siteFooter', 'Partials/Footer.html');
+  await loadPartial('#siteHeader', '/Partials/Navbar.html');
+  await loadPartial('#siteFooter', '/Partials/Footer.html');
   initMobileNav();
+  initAppNavigation();
+  window.addEventListener('popstate', renderRoute);
   window.addEventListener('hashchange', renderRoute);
   await renderRoute();
 })();

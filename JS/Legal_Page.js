@@ -121,9 +121,9 @@ async function loadLegalPage() {
     loadPartial('#siteFooter', '/Partials/Footer.html'),
   ]);
 
-  document.querySelector('.brand')?.setAttribute('href', '/#/');
+  document.querySelector('.brand')?.setAttribute('href', '/');
   document.querySelectorAll('.nav-link[data-route]').forEach((link) => {
-    link.setAttribute('href', `/#${link.dataset.route}`);
+    link.setAttribute('href', link.dataset.route);
     link.classList.remove('active');
   });
   initMobileNav();

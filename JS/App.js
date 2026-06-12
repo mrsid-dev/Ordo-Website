@@ -390,6 +390,7 @@ async function renderRoute() {
 
 (async function boot() {
   await loadPartial('#siteHeader', 'Partials/Navbar.html');
+  await loadPartial('#siteFooter', 'Partials/Footer.html');
   initMobileNav();
   window.addEventListener('hashchange', renderRoute);
   await renderRoute();

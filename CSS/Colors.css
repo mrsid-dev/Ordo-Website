@@ -1,15 +1,18 @@
 :root {
   --brand: #A30F2D;
   --brand-dark: #8B0C26;
+  --brand-accent: #C61E42;
   --brand-light: #D16063;
 
   --bg: #1C1E21;
   --panel: #2A2D31;
-  --panel-2: #3A3D42;
+  --panel-2: #3A3D40;
   --chip: #15181B;
-  --text: #F8F9FA;
-  --muted: #9CA3AF;
+  --text: #D2D5DA;
+  --text-bright: #F8F9FA;
+  --muted: #7D8286;
   --border: #42464B;
+  --light-bg: #FAF8F3;
 
   --grey-1: #3A3D40;
   --grey-2: #7D8286;

@@ -1,32 +1,66 @@
 <section class="page-header">
   <div>
-    <h1 class="page-title">Docs</h1>
-    <p class="page-intro">A launch-ready home for setup notes, command explainers, and reusable server workflows.</p>
+    <h1 class="page-title">Docs Hub</h1>
+    <p class="page-intro">Setup guidance and a public command reference for server owners getting ready to run Ordo.</p>
   </div>
 </section>
 
-<section class="docs-grid">
-  <article class="step-card">
-    <div class="card-kicker">Start</div>
-    <h3>Setup guide</h3>
-    <p>Document the first steps for adding Ordo, choosing server settings, and giving staff the right permissions.</p>
-  </article>
-  <article class="step-card">
-    <div class="card-kicker">Learn</div>
-    <h3>Feature guides</h3>
-    <p>Explain docs, embeds, giveaways, profiles, logs, voice helpers, and support codes in practical language.</p>
-  </article>
-  <article class="step-card">
-    <div class="card-kicker">Reference</div>
-    <h3>Command notes</h3>
-    <p>Keep command behavior, limits, and examples in one place so server staff can onboard faster.</p>
-  </article>
-</section>
+<section class="docs-shell">
+  <aside class="docs-rail" aria-label="Docs sections" data-docs-rail></aside>
 
-<section class="section cta-panel">
-  <div>
-    <h2>Docs are the next launch layer.</h2>
-    <p>This page is ready for real setup copy, screenshots, and command examples as the public invite gets closer.</p>
+  <div class="docs-content">
+    <article class="doc-panel doc-panel--lead" id="setup">
+      <span class="card-kicker">Start here</span>
+      <h2>Prepare the server before Ordo starts carrying work.</h2>
+      <p>Use this checklist to give Ordo the basics it needs: a clean invite, visible channels, posting permissions, and a first pass through server settings.</p>
+      <div class="doc-preview-list" aria-label="Setup preview">
+        <span>Invite Ordo with the permissions your staff workflows need.</span>
+        <span>Confirm Ordo can view, send, embed, attach, and manage messages where relevant.</span>
+        <span>Open <code>/settings</code> to configure logging, welcome, moderation, suggestions, mute setup, and defaults.</span>
+        <span>Use <code>/help</code> inside Discord when staff need command-specific guidance.</span>
+      </div>
+    </article>
+
+    <div class="docs-grid">
+      <article class="step-card">
+        <span class="card-kicker">Invite</span>
+        <h3>Add Ordo deliberately</h3>
+        <p>Start with the channels Ordo will read and post in. Most setup issues come from missing channel visibility or message permissions.</p>
+      </article>
+      <article class="step-card">
+        <span class="card-kicker">Configure</span>
+        <h3>Set the server defaults</h3>
+        <p>Use <code>/settings</code> for the operational basics: log destinations, feature toggles, welcome behavior, mute setup, and suggestion routing.</p>
+      </article>
+      <article class="step-card">
+        <span class="card-kicker">Teach staff</span>
+        <h3>Point people to workflows</h3>
+        <p>The command reference below mirrors Ordo's public help categories, so staff can learn the shape before using the in-Discord browser.</p>
+      </article>
+    </div>
+
+    <article class="doc-panel docs-reference-panel">
+      <div class="docs-reference-header">
+        <div>
+          <span class="card-kicker">Command reference</span>
+          <h3>Browse public Ordo workflows.</h3>
+          <p>Search by command, summary, or category. Internal support, development, beta, and custom server-only tools are intentionally excluded.</p>
+        </div>
+        <div class="docs-controls" aria-label="Docs filters">
+          <label>
+            <span>Search</span>
+            <input id="docsSearch" type="search" placeholder="Search commands or summaries" autocomplete="off">
+          </label>
+          <label>
+            <span>Category</span>
+            <select id="docsCategoryFilter"></select>
+          </label>
+        </div>
+      </div>
+
+      <div class="docs-reference" data-docs-reference></div>
+
+      <p id="docsEmptyState" class="docs-empty muted" hidden>No public commands match those filters.</p>
+    </article>
   </div>
-  <a class="button button--ghost" href="#/support">Ask Support</a>
 </section>
